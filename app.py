@@ -13,6 +13,7 @@ def hello():
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Headers:</b> <ul>{headers}</ul><br/>"
     headers = {f"<li><b>{k}</b>: {v}</li>" for k, v in request.headers.items()}
+    headers = sorted(headers)
     return html.format(
         time=datetime.datetime.now(),
         hostname=socket.gethostname(),
